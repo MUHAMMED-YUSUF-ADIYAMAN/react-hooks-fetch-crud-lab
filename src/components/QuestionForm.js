@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import post from "../crud/post";
 
-function QuestionForm(props) {
+function QuestionForm({fetchAllData}) {
   const [formData, setFormData] = useState({
     prompt: "",
     answer1: "",
@@ -20,6 +21,8 @@ function QuestionForm(props) {
   function handleSubmit(event) {
     event.preventDefault();
     console.log(formData);
+    post(formData);
+    fetchAllData();
   }
 
   return (
